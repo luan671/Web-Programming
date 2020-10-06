@@ -5,6 +5,8 @@ body{
     background-size: cover;
     margin: auto;
     width: 100%;    
+    transition: ease-in;
+    transition-duration: 0.5s;    
 }
 .bg {
     background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65), 
@@ -21,16 +23,18 @@ max-height: 100px;
 }
 
 .box div{
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     text-align: center;
     font-size: 2rem;
-}
-
-
-.box div:hover{
-	color: orange;
-}
+  }
+  .box div a{
+  text-decoration: none;
+  color: white;
+  }
+  .box div a:hover{
+  color: orange;
+  }
 
 .menu div{
 	text-align: center;

@@ -17,19 +17,22 @@ body{
 flex-basis:70%;
 display: flex;
 max-height: 100px;
-margin: 20px;
+margin-top: 20px;
+margin-left: 50px;
 }
-
 .box div{
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     text-align: center;
     font-size: 2rem;
 }
-
-
-.box div:hover{
+.box div a{
+	text-decoration: none;
+	color: white;
+}
+.box div a:hover{
 	color: orange;
+
 }
 
 .wd{
@@ -61,17 +64,26 @@ img{
 	font-weight: normal;
 	margin: 40px auto;
 }
-
-.opt form, input[type="button"]{
-	background-color: black;
+.opt {
 	color:white;
 	padding:10px;
 	margin:-14px auto;
-	padding-left:50px;
-	padding-right:50px;
 	text-align:center;
+	border: aliceblue solid 1px;
+	border-radius: 4px;
+    cursor: pointer;
+    font-size: 2rem;
 }
-
-form, input[type="button"]:hover{
+.opt:hover{
 	background-color: orange;
 }
+.opt a:link, a:visited {
+	color: white;
+	padding: 20px 100px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+  }
+
+
+  

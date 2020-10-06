@@ -1,67 +1,62 @@
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	color:white;
-    background: url(bg.jpg) no-repeat center center fixed;
+    background: url(black.jpg) no-repeat center center fixed;
     background-size: cover;
     margin: auto;
-    width: 100%;
+    width: 100%;    
     transition: ease-in;
     transition-duration: 0.5s;    
 }
-
 .bg {
     background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65), 
     rgba(0,0,0,0.38), rgba(0,0,0,0.95));
     min-height: 1000px;
+    position: fixed;
     display: flex;
 }
 
-.box {
-flex-basis:70%;
-display: flex;
+.box{
+flex-basis:100%;
 max-height: 100px;
-margin-top: 20px;
-margin-left: 50px;
 }
 
 .box div{
-    margin: 20px;
+    margin: 10px;
     padding: 20px;
     text-align: center;
     font-size: 2rem;
 }
 
 .box div a{
-    text-decoration: none;
-    color: white;
+	text-decoration: none;
+	color: white;
 }
 .box div a:hover{
 	color: orange;
 }
 
-.wd{
-    flex-basis: 30%;
-	background-color: black;
-	opacity: 0.9;
-    padding: 55px;
-}
-
-img{
-    float:center;
+.order {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 100px;
 }
 label {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
-.reserv {
-	font-family: Arial, Helvetica, sans-serif;
-}
-.reserv input {
+.order input {
+    width: 300px;
     background-color: white; 
     color: black;
     padding: 14px 20px;
 }
-.reserve input[type=submit] {
-	width: 100%;
+.order input[type=moretext] {
+    width: 500px;
+	color: white;
+	padding: 50px 20px;
+}
+.order input[type=submit] {
+	width: 250px;
 	background-color: black;
 	color: white;
 	padding: 14px 20px;
@@ -72,6 +67,6 @@ label {
     font-size: 2rem;
 }
   
-.reserve input[type=submit]:hover {
+.order input[type=submit]:hover {
 	background-color: orange;
   }
