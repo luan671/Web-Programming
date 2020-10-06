@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Pseudo-classes example</title>
+<style type="text/css">
+   a:link     { color : red }
+   a:visited  { color : green }
+   a:hover    { color : orange }
+
+</style>
+</head>
+<body>
+<h1>Changing link styles with pseudo-classes</h1>
+<p>Here we have a link to a page which may or may not have been visited:
+<a href="uninteresting.html">Click Here!</a>
+Watch the properties change as the link is visited or the mouse
+is moved over it and clicked on it.</p>
+</body>
+</html>

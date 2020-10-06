@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>positioning</title>
+<style type="text/css">
+
+/* Rule shared by all class="boxed" elements. */
+.boxed           { padding: 0.5em;
+                   border-width : medium;
+                   border-color: green;
+                   border-style: solid;
+                   font-style: italic;
+                 }
+
+/* Rule for the box that sits above and to the right of normal
+   position in line of text. */
+#relativebox     { position: relative;
+                   left: 0.5em;
+                   top: -1em;
+                   border: 2px solid black;
+                 }
+
+/* Rule for box that is positioned 25% from right side of page, 10%
+   down from top, and scrolls with the page. */
+#absolutebox     { position: absolute;
+                   top: 10%;
+                   right: 25%;
+                   width: 100px;
+                   color: #008000;
+                 }
+
+/* Rule for box that is positioned at left side of page, 25% above
+   bottom, and is fixed relative to window so it does not scroll with the
+   page. */
+#fixedbox        { position: fixed;
+                   bottom: 25%;
+                   left: 0%;
+                   width: 200px;
+                   color: #800000;
+		   background-color: #a0a0a0;
+                 }
+
+p { width:30em }
+</style>
+</head>
+<body>
+<h1>Positioning</h1>
+<p>This is some normal text.  The position of
+a <span id="relativebox">bit of text</span> can be moved out of its
+normal position by using relative positioning.</p>
+
+<p class="boxed" id="absolutebox">It is also possible for some text to
+be put in a given location on the page regardless of the other
+content.  This element scrolls with the page</p>
+
+<p class="boxed" id="fixedbox">It is also possible for some text to
+be put in a given location in the window regardless of the other
+  content.  This element does not scroll with the page.</p>
+
+<p>Following is some text to make the page content big enough to need
+  scroll bars.</p>
+
+<p>  Lorem ipsum dolor sit amet, ei verear incorrupte vis. Ludus populo scripserit mei in, eu blandit dignissim eos. Error nemore hendrerit eum at, ne usu persius voluptatibus. Ex vix quis hinc mutat. At ius esse viris.</p>
+
+<p>Ea usu saepe definitionem. Pro saepe menandri no. Nam eu civibus constituto, has volumus suscipit honestatis ea. Ei vim brute vivendum appellantur, ad quo case legere sapientem. Cu mei malorum corpora torquatos. Ad solet fabulas eos, zril vivendo no has.</p>
+
+<p>An munere iracundia accommodare per, debet aperiri perfecto nam ex. Eos dictas equidem antiopam ne, dicta apeirian constituam sea id, vitae facilis ius te. Mel ut agam perpetua interpretaris. No qui inermis probatus scripserit. Alii ocurreret constituto mei et, ad affert qualisque eam. Qui ne feugait mandamus, eros probo eu per.</p>
+
+<p>Mei eu habeo nullam mandamus. Vel ei erant epicurei tincidunt, nusquam lobortis ne usu, graeco oporteat suavitate ei nam. Eum amet omnesque adolescens eu, epicuri nominati mea ex. Quas idque instructior in has. No nec exerci everti consetetur, has facer oporteat ut. Id modo facilisi dissentias est, an mel errem principes.</p>
+
+<p>Eam ne utinam pertinacia, cu congue ullamcorper cum. Utroque consetetur intellegebat usu ad. In pri posse debet tempor, ex nam wisi ferri illud, ne ludus cetero vix. An pri nominavi menandri. Reque dolor qui ne. Ex menandri salutatus mel.</p>
+</body>
+</html>

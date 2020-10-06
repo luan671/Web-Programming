@@ -1,0 +1,7 @@
+/* This style sheet defines an "excerpt" class
+   for paragraphs that is much like blockquote. */
+
+p.excerpt { font-style : italic;
+	    margin-right : 2em;
+	    margin-left : 2em;
+	  }

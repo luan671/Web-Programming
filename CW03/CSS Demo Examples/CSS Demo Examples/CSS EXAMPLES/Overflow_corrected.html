@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Overflow Corrected</title>
+<style type="text/css">
+img.portrait        { float: right;
+                      margin-right: 1em }
+
+ /* floating image bigger than text, so make box = image size not text size */
+#portrait_caption  { overflow: hidden }
+
+.boxed           { margin-top: 0; /* keeps box near top-aligned with text */
+                   margin-left: 1em; /* stand off a bit from text */
+                   margin-bottom: 1ex;
+                   padding: 0.5em;
+                   border-width : medium;
+                   border-color: red;
+                   border-style: solid;
+                   font-style: italic;
+                   background-color: lightgray;
+                   width: 30%
+                 }
+
+</style>
+</head>
+<body>
+<h1>Galileo's astronomical discoveries</h1>
+
+
+<p class="boxed" id="portrait_caption">
+<img class="portrait" src="galileo_portrait.jpg" width="141" height="150"
+ alt="portrait of galileo" />
+This is a portrait of Galileo by Justus Sustermans,
+ made near the end of Galileo's life.
+</p>
+<p >In the summer of 1609, while in Venice to visit some friends,
+Galileo heard about the invention in Holland of a ``spyglass'' that
+could make distant objects appear near. Galileo set about to re-invent
+it independently. Having constructed a telescope of about twenty
+power, he turned it on the sky and rapidly made several key
+discoveries.</p>
+
+
+
+</body>
+</html>

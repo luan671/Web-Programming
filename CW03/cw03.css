@@ -1,0 +1,24 @@
+header {
+    text-align: center;
+}
+main {
+    width: 70%; display: flex; justify-content: center; margin: auto;
+}
+div {
+    border: 4px dashed red; padding: 2em; margin: 2em; column-span: all;
+}
+.col1 {
+    flex-basis: 33%;
+}
+.col2 {
+    flex-basis: 67%;
+}
+img {
+    width: 200px; position: relative; float: right;
+}
+#para1 {
+    clear: both;
+}
+#para2 {
+    position: fixed; bottom: 5px;
+}

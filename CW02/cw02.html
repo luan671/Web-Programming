@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS activity part 1</title>
+    </head>
+    <head>Excercise 1</head>
+        <p style="color: darkred;">
+        In-line style, dark red color
+        </p><hr>
+    <head>Excercise 2</head>
+        <p>
+        The html end tag is missing
+        </p><hr>
+    <head>Excercise 3</head>
+        <p style="font-style: italic;">Internal style sheet</p>
+            <style>
+                h1 {color:red; margin-left:2cm;}
+                h2 {color:red; margin-left:4cm;}
+                .pi {text-indent:2cm;color:darkred;margin-left:6cm;}
+            </style>
+        <p>
+            <h1>h1 heading</h1>
+            <h2>h2 subheading</h2>
+            <p class="pi">Paragraph 1</p>
+            <p class="pi">Paragraph 2</p>
+            <h2>h2 subheading</h2>
+            <p class="pi">Paragraph 1</p>
+        </p>
+        <p style="font-style: italic;">Extenal style sheet</p>
+        <link rel="stylesheet" href="cw02.css">
+        <p>
+            <h1 class="h1style">h1 heading</h1>
+            <h2 class="h2style">h2 subheading</h2>
+            <p class="po">Paragraph 1</p>
+            <p class="po">Paragraph 2</p>
+            <h2 class="h2style">h2 subheading</h2>
+            <p class="po">Paragraph 1</p>
+        </p><hr>
+    <head>Excercise 4</head>
+        <h1 style="font-size: 14pt; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: moccasin;">Smash Mouth</h1>
+        <h2 style="font-size: 14pt; font-family: Arial, Helvetica, sans-serif; font-weight: normal; color: khaki;">All Star</h2>
+        <h3 style="font-size: 12pt; font-family: Arial, Helvetica, sans-serif; font-weight: normal; color: khaki;">All star</h3>
+        <p style="font-size: 14pt; font-family: 'Trebuchet MS'; font-weight: bold; color: gold; margin-left: 2cm; margin-right: 2cm;">
+            <span style="background-color: chocolate;">
+            Verse:<br>
+            Somebody once told me the world is gonna roll me
+            I ain't the sharpest tool in the shed
+            She was looking kind of dumb with her finger and her thumb
+            In the shape of an "L" on her forehead
+
+            Well the years start coming and they don't stop coming
+            Fed to the rules and I hit the ground running
+            Didn't make sense not to live for fun
+            Your brain gets smart but your head gets dumb
+            So much to do, so much to see
+            So what's wrong with taking the back streets?
+            You'll never know if you don't go
+            You'll never shine if you don't glow
+        </span></p>
+        <p style="font-size: 14pt; font-family: 'Trebuchet MS'; font-weight: bold; font-style: italic; color: gold; margin-left: 4cm; margin-right: 4cm;">
+            <span style="background-color: chocolate;">
+            Chorus:<br>
+            Hey now, you're an all-star, get your game on, go play
+            Hey now, you're a rock star, get the show on, get paid
+            And all that glitters is gold
+            Only shooting stars break the mold
+        </span></p>
+        <hr>
+        <head>Excercise 5</head>
+        <link rel="stylesheet" href="cw02.css">
+        <h1 class="artist">Smash Mouth</h1>
+        <h2 class="title">All Star</h2>
+        <h3 class="album">All star</h3>
+        <p class="verse"><span style="background-color: chocolate;">
+            Verse:<br>
+            Somebody once told me the world is gonna roll me
+            I ain't the sharpest tool in the shed
+            She was looking kind of dumb with her finger and her thumb
+            In the shape of an "L" on her forehead
+
+            Well the years start coming and they don't stop coming
+            Fed to the rules and I hit the ground running
+            Didn't make sense not to live for fun
+            Your brain gets smart but your head gets dumb
+            So much to do, so much to see
+            So what's wrong with taking the back streets?
+            You'll never know if you don't go
+            You'll never shine if you don't glow
+        </span></p>
+        <p class="chorus"><span style="background-color: chocolate;">
+            Chorus:<br>
+            Hey now, you're an all-star, get your game on, go play
+            Hey now, you're a rock star, get the show on, get paid
+            And all that glitters is gold
+            Only shooting stars break the mold
+        </span></p><hr>
+        <head>Excercise 6</head>
+        <p>
+            Since all pages need to link to the school homepage. A theme for the home page needs to be determined first, components including 
+            the theme color(could be the taken from school badge). <br>This can be acheieved by creating a .background class Also, the school badge 
+            needs to be be displayed using either span or div elements paired with a pseudo-class.<br><br>
+            .theme_color {theme color throughout website}<br>
+            .badge {background image: url(school-badge.gif)}<br>
+            <#title> tags need to be standarized to make navigating through website easier<br>
+            <#head> tag pared with a .school_name{fonts, colors, location} class to display school name on main sites<br>
+            A .dept_name{fonts, colors, location} inherented from school_name to display department names on department sites, essential changes can be made<br>
+            Multiple pseudo-class point to <#table> tag to achieve calendar, timetable<br>
+            Use :hover{color:***} link state to standarize all the hover action throughout website<br>
+            A <#footer> tag to dispay info like address, phone num, etc.<br>
+            Multiple <#a href=url> links to school/departments social media<br>
+            The body{margin: ; padding: ; etc.} style sheet can provide a basic layout for most pages<br>
+        </p>
+</html>

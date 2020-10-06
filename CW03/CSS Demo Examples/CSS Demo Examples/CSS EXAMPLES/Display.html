@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Drop-down menu example</title>
+<style type="text/css">
+  /* define menu box white on blue */
+div.menu         { font-weight: bold;
+                   background-color: blue;
+                   color: white;
+                   border: 2px solid gray;
+                   text-align: center;
+                   width: 10em
+                 }
+
+  /* display menu a elements only when mouse over.  block style overrides
+     normal inline of text and makes each item start a new line.  */
+div.menu:hover a { display: block }
+
+  /* do not display menu a items otherwise */
+div.menu a       { display: none;
+                   text-decoration: none;  /* suppress normal link underline */
+                   background-color: white;  /* prevent inheriting menu colors */
+                   color: black;
+                   border-top: 2px solid gray; /* give each item a top border */
+                   width: 10em
+                 }
+
+  /* provide highlight for mouse over item */
+div.menu a:hover { background-color: #dfeeff }
+
+</style>
+</head>
+<body>
+<h1>Drop-Down Menu Example</h1>
+<p>Choose from the following options:</p>
+<div class="menu">Menu
+  <a href="optionA.html">Option A</a>
+  <a href="optionB.html">Option B</a>
+  <a href="optionC.html">Option C</a>
+</div>
+</body>
+</html>
