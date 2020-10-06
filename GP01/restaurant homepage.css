@@ -15,22 +15,20 @@ body{
 }
 .box{
 flex-basis:70%;
-font-size: 2rem;
+display: flex;
+max-height: 100px;
+margin: 20px;
 }
 
-.box ul li{
-	width:200px;
-	float: left;
-	margin: 10px auto;
+.box div{
+    margin: 10px;
+    padding: 20px;
     text-align: center;
+    font-size: 2rem;
 }
 
-.box ul li a{
-	text-decoration: none;
-	color: white;
-}
 
-.box ul li a:hover{
+.box div:hover{
 	color: orange;
 }
 
