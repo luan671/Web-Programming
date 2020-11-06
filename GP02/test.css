@@ -16,7 +16,6 @@ body {
 }
 .instruction p {
     font-size: 30px;
-    font-family: monospace;
     color: ivory;
     text-align: center;
 }
@@ -27,25 +26,37 @@ body {
     padding-left: 3rem;
 }
 .questions {
-    text-align: center;
-    margin: 2rem;
     font-size: 25px;
+    margin-left: 3rem;
 }
 .questions strong {
     font-weight: bolder;
+    margin-top: 1.5rem;
+    display: inline-block;
 }
-.questions input {
+.questions label {
     background-color: #51a9ab;
     font-size: 20px;
-    padding: 20px;
-    border-radius: 60px;
+    padding: 5px;
+    border-radius: 30px;
     position: relative;
     justify-content: center;
     border: none;
+    display: inline-block;
     margin-top: 1rem;
-    margin-bottom: 2rem;
 }
-.questions input:hover {
-    background-color: lightseagreen;
+.button{
+    justify-content: center;
+    margin-left: 40%;
+}
+.button input[type="submit"] {
+    background-color: #51a9ab;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    min-width: 300px;
     border: none;
+}
+.button input[type="submit"]:hover {
+    background-color: darkcyan;
 }
