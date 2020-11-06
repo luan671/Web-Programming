@@ -1,40 +1,43 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color:  #76b852;
 }
 .title {
     font-size: 50px;
-    color: plum;
+    color: white;
     font-weight: bolder;
     text-align: center;
     padding-top: 1cm;
 }
 .instruction {
-    background-color: papayawhip;
+    background-color:#8FBC8F;
     width: 100%;
+    padding-bottom: 20px;
 }
 .instruction p {
     font-size: 30px;
     font-family: monospace;
-    color: purple;
+    color: ivory;
     text-align: center;
 }
 .instruction a {
     font-size: 15px;
-    color: grey;
+    color: ivory;
     font-weight: bolder;
     padding-left: 3rem;
 }
 .questions {
     text-align: center;
     margin: 2rem;
+    font-size: 25px;
 }
 .questions strong {
     font-weight: bolder;
 }
 .questions input {
     background-color: #51a9ab;
+    font-size: 20px;
     padding: 20px;
-    max-width: 300px;
     border-radius: 60px;
     position: relative;
     justify-content: center;
