@@ -1,19 +1,69 @@
 <!DOCTYPE html>
-<html lang="eng">
-    <header>
-        <title>FIfteen Puzzle</title>
-    </header>
+<html>
+<head>
+	<title>Fifteen Puzzle</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="fifteen.js"></script>
+</head>
+<body id="win" onload="initializeGame()">
 
-    <link href="puzzle.css" rel="stylesheet">
+	<h1>Fifteen Puzzle</h1>
+	<p>
+		The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide
+		squares into the empty space. How quickly can you solve it?
+	</p>
+	
+    <div id="puzzle" >
 
-    <body>
-        <div id="puzzle"></div>
-        <div id="controls">
-            <button id="solve">Solve</button>		
-		    <button id="shuffle">Shuffle</button>
+    	 <div id="main">
+            <div id="one"      class="tile">1</div>
+            <div id="two"      class="tile">2</div>
+            <div id="three"    class="tile">3</div>
+            <div id="four"     class="tile">4</div>
+            <div id="five"     class="tile">5</div>
+            <div id="six"      class="tile">6</div>
+            <div id="seven"    class="tile">7</div>
+            <div id="eight"    class="tile">8</div>
+            <div id="nine"     class="tile">9</div>
+            <div id="ten"      class="tile">10</div>
+            <div id="eleven"   class="tile">11</div>
+            <div id="twelve"   class="tile">12</div>
+            <div id="thirteen" class="tile">13</div>
+            <div id="fourteen" class="tile">14</div>
+            <div id="fifteen"  class="tile">15</div>
+            <div id="sixteen"  class="tile"></div>
         </div>
-    </body>
-    
-    <script src="fifteen.js"></script>
 
+    </div>
+    <br>
+    <div id="shuffle">
+    	<select id="characters" name="characters" title="Backgrounds" onchange="changeBackground()">
+            <option value="super-mario" id="super-mario">Super Mario</option>
+            <option value="pikachu"       id="pikachu">Pikachu</option>
+            <option value="goku"      id="goku">Goku</option>
+            <option value="totoro"        id="totoro">Totoro</option>
+        </select>
+    	<button onclick="shuffleBoard()">Shuffle</button>
+    	<button onclick="cheatBoard()">Cheat</button>
+    	<div>
+			<p id = "outputTime"></p>
+			<p id = "outputMove"></p>
+		</div>
+		<embed src="gametheme.mp3" loop="true" autostart="true" width="2" height="0">
+			<iframe src="silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+			<audio id="player" autoplay controls><source src="gametheme.mp3" type="audio/mp3"></audio>
+    </div>
+    <p>
+    	American puzzle author and mathematician Sam Loyd is often falsely
+    	credited with creating the puzzle; indeed, Loyd claimed from 1891
+    	until his death in 1911 that he invented it.
+    	The puzzle was actually created around 1874 by Noyes Palmer Chapman,
+    	a postmaster in Canastota, New York.
+    </p>
+    <p>
+            <a class="w3" href="https://validator.w3.org/" target="_blank"><img src="valid-css.png" alt="W3C CSS" width="50" height="20" /> </a>
+            <a class="w3" href="https://validator.w3.org/" target="_blank"><img src="w3c-xhtml.png" alt="W3C XHTML" width="50" height="20" /> </a>
+    </p>
+
+</body>
 </html>

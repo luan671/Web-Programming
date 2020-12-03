@@ -1,268 +1,95 @@
-/*
-
-Homework and Project writeup shared style sheet
-*/
-
-a img {
-	border: none;
-}
-
-body {
-	font-family: "Times New Roman", serif;
-	font-size: 12pt;
-	background-color: white;
-	color: black;
-}
-
-.boxed {
-	border: 1px solid black;
-}
-
-code,pre,samp,tt {
-	font-family: "Courier New", monospace;
-	font-size: 95%;
-}
-
-.correction {
-	background-color: yellow;
-}
-
-.credit {
-	font-style: italic;
-	margin-bottom: 1.5em;
-	text-align: center;
-}
-
-div#appearancedetails p.clear {
-	clear: right;
-}
-
-div.sample {
-	float: left;
-	margin: 12px;
-}
-
-.grades {
-	padding-right: 50px;
-}
 
 h1 {
-	font-size: 16pt;
-	text-align: center;
-	line-height: 1.1em;
-	padding-bottom: 10px;
-}
-
-h2 {
-	font-size: 14pt;
-}
-
-h3 {
-	font-family: "Arial", sans-serif;
-	font-size: 10pt;
-	margin: 0px;
 	text-align: center;
 }
-
-h4 {
-	font-family: "Arial", sans-serif;
-	font-size: 11pt;
-	margin: 0px;
-	margin-top: 1em;
-	padding: 0px;
+#main {
+	margin: auto;
+	width:400px;
+	height:400px;
 }
-
-h1,h2 {
-	font-family: "Arial", sans-serif;
-	margin-top: 18px;
-	margin-bottom: 0px;
-	clear: both;
-}
-
-.highlighted {
-	background-color: #FFEEEE;
-	/*
-	border: 2px dashed red;
-	padding-bottom: 2px;
-	padding-top: 2px;
-	*/
-}
-
-hr.outputseparator {
-	color: black;
-	background-color: black;
-	height: 15px;
-	margin: 0px;
-}
-
-.vr {
-	height: 750px;
-	width: 10px;
-	background-color: black;
-}
-
-img.sample {
-	/*
-	float: right;
-	margin-left: 10px;
-	*/
+a {
 	text-align: center;
 }
-
-img.right {
-	float: right;
-	margin-left: 10px;
+a.w3 {
+  float: right;
+  width: 100px;
+   height: 300px;
 }
-
-li ul, li {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	text-align: justify;
-}
-
-li.horizontal {
-	display: inline; 
-	margin-right: 3em;
-}
-
-.longcode {
-	font-size: smaller;
-}
-
-.outputimagelist {
-	list-style-type: none;
-	padding-left: 0em;
-}
-
-.outputimagelist li, .outputimagelist li img {
-	margin-bottom: 0px;
-	margin-top: 0px;
-	padding-bottom: 0px;
-	padding-top: 0px;
+.tile {
+	width:96px;
+	height:96px;
+	float: left;
 	text-align: center;
-	vertical-align: bottom;
+	border: 2px black solid;
+	font-family: sans-serif;
+	font-size: 32px;
+	line-height: 100px;
+	text-shadow: 1px 2px 2px black;
 }
 
-p {
-	margin-bottom: 8px;
-	margin-top: 8px;
-	page-break-inside: avoid;
-	text-align: justify;
-}
-
-p.acknowledgement {
-	font-style: italic;
-	margin-top: 0px;
-	margin-bottom: 16px;
+#shuffle{
 	text-align: center;
+	margin: auto;
 }
 
-.expectedoutput {
+.super-mario { background: url("super-mario.jpg"); }
+.pikachu       { background: url("pikachu.jpg");       }
+.goku      { background: url("goku.jpg");      }
+.totoro        { background: url("totoro.jpg");        }
+
+#one      { background-position: 0      0;      }
+#two      { background-position: -100px 0;      }
+#three    { background-position: -200px 0;      }
+#four     { background-position: -300px 0;      }
+#five     { background-position: 0      -100px; }
+#six      { background-position: -100px -100px; }
+#seven    { background-position: -200px -100px; }
+#eight    { background-position: -300px -100px; }
+#nine     { background-position: 0      -200px; }
+#ten      { background-position: -100px -200px; }
+#eleven   { background-position: -200px -200px; }
+#twelve   { background-position: -300px -200px; }
+#thirteen { background-position: 0      -300px; }
+#fourteen { background-position: -100px -300px; }
+#fifteen  { background-position: -200px -300px; }
+#sixteen  { border: 2px solid white !important; }
+
+.movablepiece {
+
+	transition: all 0.5s ease-in-out;
+}
+
+.movablepiece:hover {
+	border-color: red ;
+	text-decoration: underline ;
+	color: #006600;
+	cursor: pointer;
+}
+
+#win {
+	margin: auto;
 	text-align: center;
-	line-height: 0em;
-	padding: 0px;
-	margin: 0px;
+	display: block;
 }
 
-.expectedoutput img {
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
-	vertical-align: top;
+
+
+.animate-up {
+
+	transform: translate(0, -100px);
 }
 
-pre, code, samp {
-	font-family: "Courier New", monospace;
+.animate-down {
+
+	transform: translate(0, 100px);
 }
 
-pre em {
-	background-color: #FFFFAA;
+.animate-left {
+
+	transform: translate(-100px, 0);
 }
 
-pre em, code em {
-	color: #660000;
-	font-style: normal;
-	font-weight: bold;
-}
+.animate-right {
 
-.rightfigure {
-	float: right;
-	margin-left: 1em;
-}
-
-.w3c {
-	float: right;
-	margin-left: 1em;
-}
-
-.subheading {
-	font-size: smaller;
-}
-
-ul {
-	margin-top: 9px;
-}
-
-ul p {
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-
-.split {
-	text-align: center;
-}
-
-.split li {
-	display: inline;
-}
-
-.split li img {
-	max-width: 45%;
-}
-
-.split li .outputseparator {
-	display: inline;
-	height: 100px;
-	vertical-align: middle;
-	width: 15px;
-}
-
-.subheading {
-	font-size: 80%;
-}
-
-.syntaxtemplate {
-	color: #660000;
-	font-family: "Arial", sans-serif;
-	font-style: italic;
-}
-
-.paramtable {
-	border-collapse: collapse;
-	caption-side: top;
-	margin: 0.5em auto 0.5em auto;
-	min-width: 40%;
-}
-
-.paramtable caption {
-	text-align: center;
-	margin: 0em auto;
-}
-
-.paramtable td, .paramtable th {
-	border: 1px solid gray;
-	padding: 0.25em;
-}
-
-.url {
-	font-family: Garamond, serif;
-	color: #000066;
-}
-
-pre {
-	background-color: #F8F8FF;
-	border: 1px dashed blue;
-	padding: 0.2em 0.5em;
+	transform: translate(100px, 0);
 }

@@ -1,166 +1,219 @@
-var state = 1;
-var puzzle = document.getElementById('puzzle');
-var steps = 0;
-//create a solved puzzle
-solve();
 
-puzzle.addEventListener('click', function (e) {
-	if (state == 1) {
-		// Enables sliding animation
-		puzzle.className = 'animate';
-		shiftCell(e.target);
-	}
-	//count how many times user moved the block before solving
-	steps++;
-});
+var start = new Date();
+var end;
+var elapsed_ms = end - start;
+var seconds; 
 
-document.getElementById('solve').addEventListener('click', solve);
-document.getElementById('shuffle').addEventListener('click', shuffle);
-//puzzle return to initial solved state
-function solve() {
+var moves = 0;
 
-	if (state == 0) {
-		return;
-	}
+var ids = [
+"one",      "two",      "three",   "four",
+"five",     "six",      "seven",   "eight",
+"nine",     "ten",      "eleven",  "twelve",
+"thirteen", "fourteen", "fifteen", ""
+];
 
-	puzzle.innerHTML = '';
+var shuffled = ids.slice();
 
-	var n = 1;
-	//go through all elements in puzzle
-	for (var i = 0; i <= 3; i++) {
-		for (var j = 0; j <= 3; j++) {
-			var cell = document.createElement('span');
-			cell.id = 'cell-' + i + '-' + j;
-			cell.style.left = (j * 80 + 1 * j + 1) + 'px';
-			cell.style.top = (i * 80 + 1 * i + 1) + 'px';
-			//create the first 15 non-empty elements
-			if (n <= 15) {
-				cell.classList.add('moveablepiece');
-				cell.classList.add((i % 2 == 0 && j % 2 > 0 || i % 2 > 0 && j % 2 == 0) ? 'dark' : 'light');
-				cell.innerHTML = (n++).toString();
-			} else {
-				cell.className = 'empty';
-			}
-			puzzle.appendChild(cell);
-		}
-	}
+var ids_numeric = {
+	"one":1,       "two":2,       "three":3,    "four":4,
+	"five":5,      "six":6,       "seven":7,    "eight":8,
+	"nine":9,      "ten":10,      "eleven":11,  "twelve":12,
+	"thirteen":13, "fourteen":14, "fifteen":15, "sixteen":16
+};
+
+var selected_background;
+
+var movement = [
+    [0, 1, 1, 0], 
+    [0, 1, 1, 1], 
+    [0, 1, 1, 1], 
+    [0, 0, 1, 1], 
+    [1, 1, 1, 0], 
+    [1, 1, 1, 1], 
+    [1, 1, 1, 1], 
+    [1, 0, 1, 1], 
+    [1, 1, 1, 0], 
+    [1, 1, 1, 1], 
+    [1, 1, 1, 1], 
+    [1, 0, 1, 1], 
+    [1, 1, 0, 0], 
+    [1, 1, 0, 1], 
+    [1, 1, 0, 1], 
+    [1, 0, 0, 1] 
+    ];
+
+var background = ["super-mario", "pikachu", "goku", "totoro"];
+
+ function initializeGame() {
+ 	var background_id = Math.floor((Math.random() * 4));
+ 	selected_background = background[background_id];
+
+    document.getElementById(background[background_id]).selected = true;
+
+    for (var i = 0; i < ids.length - 1; i++) {
+    	document.getElementById(ids[i]).className = "tile " + background[background_id];
+    }
+    document.getElementById("player").autoplay;
+}
+function cheatBoard(){
+shuffled = ids.slice();
+displayBoard();
+}
+
+ function changeBackground() {
+ 	var class_name = document.getElementById("characters").value;
+
+ 	if (background.indexOf(class_name) < 0) {
+ 		return;
+ 	}
+
+ 	selected_background = class_name;
+
+ 	document.getElementById("main").innerHTML = "";
+
+ 	for (var i = 0; i < ids.length; i++) {
+ 		if (ids[i] == "") {
+ 			document.getElementById("main").innerHTML += '<div id="sixteen" class="tile"></div>';
+ 		} else {
+ 			var id_name = ids[i];
+ 			document.getElementById("main").innerHTML += '<div id="' + ids[i] + '" class="tile' + " " + selected_background + '">' + ids_numeric[id_name] + '</div>';
+ 		}
+ 	}
+ }
+
+ function shuffleBoard() {
+    shuffled = ids.slice(); 
+    var sixteen = 15;
+
+    for (var i = 0; i < 1000; i++) {
+
+    	var movement_id = Math.floor((Math.random() * 4));
+
+    	while(movement[sixteen][movement_id] != 1) {
+    		movement_id = Math.floor((Math.random() * 4));
+    	}
+
+        var move_to;
+
+        switch(movement_id) {
+        	case 0:
+        	move_to = sixteen - 4;
+        	break;
+                case 1:
+                move_to = sixteen + 1;
+                break;
+                case 2:
+                move_to = sixteen + 4;
+                break;
+                case 3:
+                move_to = sixteen - 1;
+                break;
+            }
+
+        var temp = shuffled[sixteen];
+        shuffled[sixteen] = shuffled[move_to];
+        shuffled[move_to] = temp;
+
+        sixteen = move_to;
+    }
+
+    displayBoard();
 
 }
 
-function shiftCell(cell) {
+ function displayBoard() {
+ 	document.getElementById("main").innerHTML = "";
 
-	if (cell.className != 'empty') {
+ 	for (var i = 0; i < shuffled.length; i++) {
+ 		if (shuffled[i] == "") {
+ 			document.getElementById("main").innerHTML += '<div id="sixteen" class="tile"></div>';
+ 		} else {
+ 			var id_name = shuffled[i];
+ 			document.getElementById("main").innerHTML += '<div id="' + shuffled[i] + '" class="tile' + " " + selected_background + '">' + ids_numeric[id_name] + '</div>';
+ 		}
+ 	}
 
-		var emptyCell = getEmptyAdjacentCell(cell);
 
-		if (emptyCell) {
-			var tmp = { style: cell.style.cssText, id: cell.id };
-			cell.style.cssText = emptyCell.style.cssText;
-			cell.id = emptyCell.id;
-			emptyCell.style.cssText = tmp.style;
-			emptyCell.id = tmp.id;
 
-			if (state == 1) {
-				checkOrder();
-			}
-		}
-	}
+ 	var movablepiece_id;
 
-}
+ 	if (movement[shuffled.indexOf("")][0] == 1) {
+ 		movablepiece_id = shuffled.indexOf("") - 4;
+ 		document.getElementById(shuffled[movablepiece_id]).className += " movablepiece";
+ 		document.getElementById(shuffled[movablepiece_id]).setAttribute("onclick", "swapPieces(" + movablepiece_id + ", " + shuffled.indexOf("") + ")");
+ 	}
 
-function getCell(row, col) {
-	//return row+column of cell
-	return document.getElementById('cell-' + row + '-' + col);
-}
+ 	if (movement[shuffled.indexOf("")][1] == 1) {
+ 		movablepiece_id = shuffled.indexOf("") + 1;
+ 		document.getElementById(shuffled[movablepiece_id]).className += " movablepiece";
+ 		document.getElementById(shuffled[movablepiece_id]).setAttribute("onclick", "swapPieces(" + movablepiece_id + ", " + shuffled.indexOf("") + ")");
+ 	}
 
-function getEmptyCell() {
+ 	if (movement[shuffled.indexOf("")][2] == 1) {
+ 		movablepiece_id = shuffled.indexOf("") + 4;
+ 		document.getElementById(shuffled[movablepiece_id]).className += " movablepiece";
+ 		document.getElementById(shuffled[movablepiece_id]).setAttribute("onclick", "swapPieces(" + movablepiece_id + ", " + shuffled.indexOf("") + ")");
+ 	}
 
-	return puzzle.querySelector('.empty');
-}
+ 	if (movement[shuffled.indexOf("")][3] == 1) {
+ 		movablepiece_id = shuffled.indexOf("") -1;
+ 		document.getElementById(shuffled[movablepiece_id]).className += " movablepiece";
+ 		document.getElementById(shuffled[movablepiece_id]).setAttribute("onclick", "swapPieces(" + movablepiece_id + ", " + shuffled.indexOf("") + ")");
+ 	}
+    end        = new Date();
+    elapsed_ms = end - start;
+    seconds    = Math.round(elapsed_ms / 1000);
+    document.getElementById("outputTime").innerHTML="Total time (in seconds): "+seconds;
+    document.getElementById("outputMove").innerHTML="Total moves: "+moves;
 
-function getEmptyAdjacentCell(cell) {
 
-	var adjacent = getAdjacentCells(cell);
-
-	for (var i = 0; i < adjacent.length; i++) {
-		if (adjacent[i].className == 'empty') {
-			return adjacent[i];
-		}
-	}
-	return false;
-}
-
-function getAdjacentCells(cell) {
-//split the id of element in getCell
-	var id = cell.id.split('-');
-	var row = parseInt(id[1]);
-	var col = parseInt(id[2]);
-	var adjacent = [];
-
-	if (row < 3) { adjacent.push(getCell(row + 1, col)); }
-	if (row > 0) { adjacent.push(getCell(row - 1, col)); }
-	if (col < 3) { adjacent.push(getCell(row, col + 1)); }
-	if (col > 0) { adjacent.push(getCell(row, col - 1)); }
-
-	return adjacent;
 
 }
 
-function checkOrder() {
+ function swapPieces(movablepiece_id, empty_id) {
+ 	animateMovement(movablepiece_id, empty_id);
 
-	if (getCell(3, 3).className != 'empty') {
-		return;
-	}
-	var n = 1;
-	for (var i = 0; i <= 3; i++) {
-		for (var j = 0; j <= 3; j++) {
-			if (n <= 15 && getCell(i, j).innerHTML != n.toString()) {
-				return;
-			}
-			n++;
-		}
-	}
-//check if the user has finished the puzzle
-//display message and the counted steps
-	if (confirm('Congrats, You did it in ' + steps + ' steps\nshuffle the puzzle?')) {
-		shuffle();
-	}
+ 	setTimeout(function() {
+ 		var temp = shuffled[empty_id];
+ 		shuffled[empty_id] = shuffled[movablepiece_id];
+ 		shuffled[movablepiece_id] = temp;
 
+ 		moves++;
+
+ 		displayBoard();
+ 		checkIfWon();
+ 	}, 600);
+ }
+
+ function animateMovement(movablepiece_id, empty_id) {
+ 	if (movablepiece_id - 4 == empty_id) {
+ 		console.log(shuffled[movablepiece_id]);
+ 		document.getElementById(shuffled[movablepiece_id]).className += " animate-up";
+ 	} else if (movablepiece_id + 1 == empty_id) {
+ 		document.getElementById(shuffled[movablepiece_id]).className += " animate-right";
+ 	} else if (movablepiece_id + 4 == empty_id) {
+ 		document.getElementById(shuffled[movablepiece_id]).className += " animate-down";
+ 	} else if (movablepiece_id - 1 == empty_id) {
+ 		document.getElementById(shuffled[movablepiece_id]).className += " animate-left";
+ 	}
+ }
+
+ function checkIfWon() {
+    if (ids.toString() == shuffled.toString()) { 
+    	var end        = new Date();
+    	var elapsed_ms = end - start;
+		var seconds    = Math.round(elapsed_ms / 1000);
+		var back = document.createElement("button");
+		back.innerHTML = "GO BACK";
+		back.setAttribute('onClick', "location.reload()");
+
+    	var html = "";
+    	html += "<img src='win.gif' alt='You win' />";
+    	html += "<p>Total time (in seconds): " + seconds + "</p>";
+		html += "<p>Total moves : " + moves + "</p>";
+
+		document.getElementById("win").innerHTML = html;
+		document.body.appendChild(back);
+    }
 }
-//shuffle function
-function shuffle() {
-
-	if (state == 0) {
-		return;
-	}
-
-	puzzle.removeAttribute('class');
-	state = 0;
-
-	var previousCell;
-	var i = 1;
-	var interval = setInterval(function () {
-		if (i <= 100) {
-			var adjacent = getAdjacentCells(getEmptyCell());
-			if (previousCell) {
-				for (var j = adjacent.length - 1; j >= 0; j--) {
-					if (adjacent[j].innerHTML == previousCell.innerHTML) {
-						adjacent.splice(j, 1);
-					}
-				}
-			}
-			previousCell = adjacent[rand(0, adjacent.length - 1)];
-			shiftCell(previousCell);
-			i++;
-		} else {
-			clearInterval(interval);
-			state = 1;
-		}
-	})
-}
-
-function rand(from, to) {
-
-	return Math.floor(Math.random() * (to - from + 1)) + from;
-}
-
