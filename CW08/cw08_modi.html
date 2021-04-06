@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CW08</title>
+    </head>
+    <script type="text/javascript">
+        function validate(form){
+            var idnum = form.idnum.value;
+            var fname = form.fname.value;
+            var lname = form.lname.value;
+            var errors = [];
+         
+            if (!checkLength(idnum)) {
+                document.getElementById("iderror") = "Please enter an ID";
+                errors.push(" ID");
+            }
+         
+            if (!checkLength(fname)) {
+                document.getElementById("ferror") = "Please enter your first name";
+                errors.push(" first name");
+            }
+
+            if (!checkLength(lname)) {
+                document.getElementById("lerror") = "Please enter your last name";
+                errors.push(" last name");
+            }
+         
+            if (errors.length > 0) {
+                reportErrors(errors);
+                return false;
+            }
+            document.getElementById("display").innerHTML  = "<hr>" + 
+            "User ID:" + idnum + "<br>" + "First Name:" + fname + "<br>" + "Last Name:" + lname;
+            //return true;
+        }
+         
+        function checkLength(text, min, max){
+            min = min || 1;
+            max = max || 10000;
+         
+            if (text.length < min || text.length > max) {
+                return false;
+            }
+            return true;
+        }
+         
+        function reportErrors(errors){
+            var numError;
+            var msg = "There were some problems...\nYou forgot to fill in the following fields:";
+            for (var i = 0; i<errors.length; i++) {
+                numError = i + 1;
+                msg += errors[i] + ",";
+            }
+            alert(msg);
+        }
+        </script>
+    <body>
+        <h1>Login Form</h1>
+        <form method="post" onsubmit="validate(this); return false">
+            <div id="iderror"></div>
+            ID: <input type="text" name="idnum" size="10"><br>
+            <div id="ferror"></div>
+            First Name: <input type="text" name="fname" size="10"><br>
+            <div id="lerror"></div>
+            Last Name: <input type="text" name="lname" size="10"><br>
+        
+            <input type="submit" value="Add"><br>
+        </form>
+        <div id="display"></div>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+FAQ JavaScript Explanation about CW08 - Displaying Text With JavaScript -
+
+
+In JavaScript, text is displayed in elements.  
+
+There are multiple ways to display text on a web page in JavaScript, the easiest is:
+
+
+  <!--
+            function Warn() {
+               alert ("This is a warning message!");
+               document.write ("This is a warning message!");
+            }
+         //-->
+
+document.write is used here to display the text warning 
+
+
+Alert --
+
+<script>
+    alert(" Wasssssup!");
+  </script>
+
+Alert with prompt
+
+  <script>
+    'use strict';
+
+    let name = prompt("What is your name?", "");
+    alert(name);
+  </script>
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_alert
+
+Confirmation Dialog Box
+A confirmation dialog box is mostly used to take user's consent on any option. It displays a dialog box with two buttons: OK and Cancel.
+
+If the user clicks on the OK button, the window method confirm() will return true. If the user clicks on the Cancel button, then confirm() returns false. You can use a confirmation dialog box as follows.
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_confirm
+
+
+
+
+Unfortunately, the document.write method will overwrite all the text on your page. As W3Schools said, it is only for testing. A much more useful method is document.getElementById. document.getElementById enables you to update or change the text in an element easily without affecting the rest of your page, as shown below.
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+
+<script type="text/javascript">
+
+  document.getElementById("myelement1") = "Hello world!";
+
+</script>
+</head>
+<body>
+
+<p id="myelement1"></p>
+
+</body>
+</html>
+
+
+<!-- The JS code above creates an element with the id ‘myelement1’. You can give it your own name, if you wish. In case you were wondering, the lack of text between the two paragraph tags does mean that it’s blank. You won’t see it until you set it to display something using the JavaScript code above. It doesn’t even need to refresh the page, which is very beneficial from a performance standpoint. It’s instantaneous! -->
